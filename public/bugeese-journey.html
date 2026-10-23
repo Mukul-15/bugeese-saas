@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Bugeese Journey – Where Veg meets Wow</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F1E7;--ink:#1B1A17;--red:#C8201A;--yel:#F8B912;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130F;--ink:#F6F1E7;--card:#2A241D}}
+:root[data-theme="dark"]{--bg:#17130F;--ink:#F6F1E7;--card:#2A241D}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px;z-index:50}
+.skip:focus{top:8px}
+.d{font:400 1em/.9 'Bebas Neue',Impact,sans-serif;text-transform:uppercase;margin:0}
+.sc{position:relative;padding:96px 6vw}
+.tag{display:inline-block;background:var(--yel);color:#1B1A17;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:4px}
+.btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:16px 28px;border-radius:999px;border:0;font-size:16px;font-family:inherit;box-shadow:0 5px 0 #7d120e;transition:transform .15s,box-shadow .15s;cursor:pointer}
+.btn:hover{transform:translateY(3px);box-shadow:0 2px 0 #7d120e}
+.btn.k{background:#1B1A17;box-shadow:0 5px 0 #000}
+.o{display:inline-block;border:2px solid currentColor;font-weight:700;padding:14px 26px;border-radius:999px}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.words span{display:inline-block;opacity:.15;transition:opacity .4s}
+.words span.on{opacity:1}
+header{position:absolute;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:20px 6vw;z-index:10}
+header nav{display:flex;gap:24px;font-weight:500;font-size:15px}
+header .logo{font-size:44px;color:var(--red)}
+/* 1 opening */
+#s1{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px;overflow:hidden}
+#s1 h1{font-size:clamp(76px,15vw,230px);color:var(--red)}
+#s1 h1 span{display:block;overflow:hidden}
+#s1 h1 i{display:block;font-style:normal;transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+#s1 h1 span:nth-child(2) i{animation-delay:.15s}
+@keyframes up{to{transform:none}}
+#s1 .bg{position:absolute;right:-6vw;top:16%;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;background:var(--yel);animation:pop 1s .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{transform:scale(.2);opacity:0}}
+#s1 p{max-width:480px;position:relative}
+/* marquee */
+.mq{background:#1B1A17;color:#F6F1E7;overflow:hidden;white-space:nowrap;padding:16px 0;font:400 32px 'Bebas Neue';letter-spacing:.05em}
+.mq div{display:inline-block;animation:mq 24s linear infinite}
+.mq span{margin:0 26px}.mq span:nth-child(even){color:#F8B912}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* 2 */
+#s2{background:var(--bg)}
+#s2 .words{font-size:clamp(48px,8vw,120px);max-width:1100px}
+/* 3 */
+#s3{background:var(--yel);color:#1B1A17}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.cat{background:#F6F1E7;border-radius:14px;overflow:hidden;transition:transform .25s;display:flex;flex-direction:column}
+.cat:hover{transform:translateY(-8px) rotate(-1deg)}
+.cat .ph{height:260px;display:flex;align-items:flex-end;padding:14px;font-size:12px;font-weight:700;background:linear-gradient(135deg,#E9C98A,#C98B4A)}
+.cat div.t{padding:20px 22px 24px}
+.cat .d{font-size:44px;color:var(--red)}
+/* 4 craving */
+#s4{height:200vh;background:var(--red);color:#F6F1E7;padding:0}
+.pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px;padding:0 6vw;overflow:hidden}
+.pin h2{font-size:clamp(64px,9vw,140px);margin:16px 0}
+.stage{position:relative;height:min(560px,72vh);perspective:1100px}
+.scene{position:absolute;left:50%;top:54%;width:0;height:0;transform-style:preserve-3d}
+.ly{position:absolute;display:block;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;transform:translateZ(calc(var(--i)*var(--gap,10)*1px));box-shadow:inset 0 -10px 22px rgba(0,0,0,.28),0 0 0 2px rgba(0,0,0,.18)}
+.ly.bun{background:#D98B3A}
+.ly.patty{background:radial-gradient(circle at 30% 30%,#7a4a2c,#4a2a18);width:290px;height:290px;margin:-145px 0 0 -145px}
+.ly.cheese{background:#F8B912;width:230px;height:230px;margin:-115px 0 0 -115px;border-radius:14px;transform:translateZ(calc(var(--i)*var(--gap,10)*1px)) rotateZ(45deg)}
+.ly.tomato{background:radial-gradient(circle,#e8453a 40%,#C8201A);width:270px;height:270px;margin:-135px 0 0 -135px}
+.ly.lettuce{background:#4C9A2A;width:350px;height:350px;margin:-175px 0 0 -175px;border-radius:46% 54% 48% 52%/54% 46% 56% 44%;box-shadow:inset 0 0 0 10px #66b53d,inset 0 -10px 22px rgba(0,0,0,.25)}
+.ly.top{background:radial-gradient(circle at 35% 30%,#f2b25f,#D98B3A 60%,#b8702a);width:310px;height:310px;margin:-155px 0 0 -155px}
+.note{font-size:13px;opacity:.85}
+/* 5 order */
+#s5{background:var(--bg)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:40px}
+.path{background:var(--card);border-radius:16px;padding:28px;box-shadow:0 12px 28px rgba(0,0,0,.12);margin-bottom:24px}
+.path h3{font-size:44px;color:var(--red);margin-bottom:8px}
+.phone{width:270px;height:540px;margin:auto;background:#1B1A17;border-radius:36px;padding:12px;box-shadow:0 24px 50px rgba(0,0,0,.3);position:relative}
+.scr{position:relative;height:100%;background:#F6F1E7;color:#1B1A17;border-radius:26px;overflow:hidden}
+.scr>div{position:absolute;inset:0;padding:22px 16px;opacity:0;transform:translateX(30px);transition:opacity .5s,transform .5s}
+.scr>div.on{opacity:1;transform:none}
+.scr .d{font-size:30px;color:#C8201A;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;font-size:14px}
+.fake{display:block;text-align:center;background:#C8201A;color:#fff;border-radius:999px;padding:12px;font-weight:700;margin-top:14px;font-size:14px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.dots button{width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dots button i{width:12px;height:12px;border-radius:50%;background:#999;display:block}
+.dots button[aria-current="true"] i{background:var(--red);width:28px;border-radius:6px}
+.demo{text-align:center;font-size:13px;opacity:.8;margin-top:6px}
+/* 6 final */
+#s6{background:#1B1A17;color:#F6F1E7;text-align:center;padding:120px 6vw 40px}
+#s6 .big{font-size:clamp(90px,20vw,300px);color:var(--yel)}
+#s6 h2{font-size:clamp(40px,6vw,88px);margin:20px 0 28px}
+.info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:56px;font-size:15px;line-height:1.8;text-align:left}
+@media(max-width:860px){.cards,.two,.pin{grid-template-columns:1fr}header nav{display:none}.sc{padding:64px 6vw}#s4{height:150vh}.stage{height:340px}.scene{scale:.62}#s1 .bg{opacity:.5;width:70vw}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.words span{opacity:1}#s1 h1 i,#s1 .bg{animation:none;transform:none}.mq div{animation:none}#s4{height:auto;padding:64px 0}.pin{position:static;height:auto}}
+
+/* story */
+#story{height:340vh;background:#F6F1E7;color:#1B1A17;padding:0}
+.sp{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:24px;padding:0 6vw;overflow:hidden}
+.sk{position:absolute;right:6vw;top:calc(env(safe-area-inset-top,0px) + 76px);z-index:3;font-size:14px;font-weight:700;border-bottom:2px solid;padding:10px 0}
+.bts{position:relative;height:330px}
+.bt{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s;pointer-events:none}
+.bt h2{font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)}
+.bt p{max-width:440px;margin:0 0 10px}
+.src{font-size:12px;opacity:.75}
+.c0 .b0,.c1 .b1,.c2 .b2,.c3 .b3,.c4 .b4{opacity:1;transform:none;pointer-events:auto}
+.sn{position:relative;height:min(520px,66vh)}
+.gr{position:absolute;left:0;right:0;bottom:10%;height:6px;background:#1B1A17;border-radius:3px}
+.shop{position:absolute;bottom:calc(10% + 6px);width:36%;aspect-ratio:1/1.05;transform-origin:bottom center;opacity:0;transform:scale(.5) translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.shop .aw{height:26%;background:repeating-linear-gradient(90deg,#C8201A 0 14%,#F6F1E7 14% 28%);border:2px solid #1B1A17;border-radius:6px 6px 0 0}
+.shop .bd{position:relative;height:74%;background:#fff;border:2px solid #1B1A17;border-top:0;text-align:center;font:400 22px/1.6 'Bebas Neue';color:#C8201A}
+.shop .bd::after{content:"";position:absolute;bottom:0;left:38%;width:24%;height:58%;background:#F8B912;border:2px solid #1B1A17;border-bottom:0}
+.s1{left:4%}.s2{right:4%}
+.on1 .s1,.on2 .s2{opacity:1;transform:none}
+.on4 .shop{opacity:.3}
+.orb{position:absolute;left:50%;bottom:calc(10% + 46px);width:90px;height:90px;margin-left:-45px;border-radius:50%;background:#F8B912;animation:pulse 2.4s ease-in-out infinite;transition:opacity .6s,scale .6s}
+.on1 .orb{opacity:0;scale:.2}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.award{position:absolute;left:50%;top:4%;translate:-50% 0;background:#1B1A17;color:#F8B912;padding:10px 16px;border-radius:6px;font-weight:700;font-size:13px;text-align:center;opacity:0;transform:translateY(-16px);transition:opacity .6s,transform .6s;max-width:90%}
+.on3 .award{opacity:1;transform:none}.on4 .award{opacity:0}
+.mph{position:absolute;left:50%;bottom:6%;width:150px;height:290px;margin-left:-75px;background:#1B1A17;border-radius:22px;padding:8px;opacity:0;transform:translateY(70px);transition:opacity .7s,transform .7s}
+.on4 .mph{opacity:1;transform:none}
+.mph div{height:100%;background:#F6F1E7;border-radius:15px;padding:12px;display:grid;gap:8px;align-content:start}
+.mph i{display:block;height:34px;background:#fff;border-radius:8px;box-shadow:0 1px 3px #0003}
+.mph b{font:400 22px 'Bebas Neue';color:#C8201A}
+.pr{position:absolute;left:6vw;bottom:5vh;display:flex;gap:8px}
+.pr span{width:36px;height:4px;background:#1B1A1733;transition:background .4s}
+.c0 .pr span:nth-child(1),.c1 .pr span:nth-child(-n+2),.c2 .pr span:nth-child(-n+3),.c3 .pr span:nth-child(-n+4),.c4 .pr span{background:#C8201A}
+#road{background:var(--yel);color:#1B1A17}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.cmp>div{background:#F6F1E7;border-radius:16px;padding:28px}
+.cmp h3{font-size:42px;color:var(--red);margin-bottom:8px}
+.cmp ul{padding-left:20px;margin:0}
+@media(max-width:860px){#story{height:280vh}.sp{grid-template-columns:1fr;grid-template-rows:38vh auto;align-content:center}.sn{order:-1;height:38vh}.bts{height:300px}.cmp{grid-template-columns:1fr}.mph{height:220px;width:120px;margin-left:-60px}}
+@media(prefers-reduced-motion:reduce){#story{height:auto;padding:64px 0}.sp{position:static;height:auto;grid-template-columns:1fr}.sn,.pr{display:none}.bts{height:auto}.bt{position:static;opacity:1;transform:none;margin-bottom:28px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#s3">Skip intro, go to menu</a>
+<header><a class="d logo" href="#s1">Bugeese</a><nav><a href="#s3">Menu</a><a href="#story">Our Story</a><a href="#s5">Order</a><a href="#s6">Find Us</a></nav></header>
+
+<section class="sc" id="s1">
+<span class="tag">100% Vegetarian · Indore</span>
+<h1 class="d" style="margin:20px 0"><span><i>Where Veg</i></span><span><i>meets Wow</i></span></h1>
+<p>Juicy burgers, handcrafted pizzas, toasted paninis and chilled drinks, made to be crave-worthy and quick.</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;position:relative"><a class="btn" href="#s3">Explore the Menu</a><a class="o" href="#s5">Order Online</a></div>
+<div class="bg" aria-hidden="true"></div>
+</section>
+
+<div class="mq" aria-hidden="true"><div><span>Burgers</span><span>Pizza</span><span>Paninis</span><span>Sandwiches</span><span>Beverages</span><span>Cheese Balls</span><span>Nachos</span><span>Fries</span><span>Mojito</span><span>Burgers</span><span>Pizza</span><span>Paninis</span><span>Sandwiches</span><span>Beverages</span><span>Cheese Balls</span><span>Nachos</span><span>Fries</span><span>Mojito</span></div></div>
+
+<section class="sc" id="s2">
+<span class="tag rv">Enter the world of Bugeese</span>
+<h2 class="d words" style="margin-top:24px" data-words>Your brain says salad. Your heart says burger. Follow your heart.</h2>
+<p class="rv" style="max-width:560px;margin-top:28px">Greens are great… but have you tried melted cheese? Bugeese is built for your pace, your style and your flavour.</p>
+</section>
+
+
+<section id="story" aria-labelledby="st-h">
+<div class="sp c0 on0" id="sp">
+<a class="sk" href="#s3">Skip the story, see the menu</a>
+<div class="bts">
+<h2 id="st-h" class="d" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">The Bugeese story</h2>
+<div class="bt b0"><span class="tag">The beginning</span><h3 class="d" style="font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)">An idea, before a restaurant</h3><p>Bugeese began with a dream: to give India its own dedicated vegetarian burger brand.</p><p class="src">Source: bugeese.com, About Us</p></div>
+<div class="bt b1"><span class="tag">June 2023 · Jabalpur</span><h3 class="d" style="font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)">Founded in Jabalpur</h3><p>A chef trained in five-star hotels set out to show that vegetarian food can be bold, flavourful and satisfying, with handcrafted burgers at the centre.</p><p class="src">Source: bugeese.com, About Us</p></div>
+<div class="bt b2"><span class="tag">January 2024 · Second outlet</span><h3 class="d" style="font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)">A second outlet opens</h3><p>Encouraged by customer response, Bugeese opened a second outlet in January 2024.</p><p class="src">Source: bugeese.com, About Us</p></div>
+<div class="bt b3"><span class="tag">2024 and 2025 · Recognition</span><h3 class="d" style="font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)">Best Burgers in Jabalpur</h3><p>Bugeese states that it earned this Swiggy recognition in both years.</p><p class="src">As stated on bugeese.com. [Owner to confirm before presenting as fact.]</p></div>
+<div class="bt b4"><span class="tag">Today</span><h3 class="d" style="font-size:clamp(50px,7vw,104px);margin:14px 0;color:var(--red)">Bugeese, in your hands</h3><p>The next chapter is franchise opportunities and new cities. Now see what’s on the menu.</p><a class="btn" href="#s3">Explore the menu</a></div>
+</div>
+<div class="sn" aria-hidden="true"><div class="gr"></div><div class="orb"></div>
+<div class="shop s1"><div class="aw"></div><div class="bd">Bugeese</div></div>
+<div class="shop s2"><div class="aw"></div><div class="bd">Bugeese</div></div>
+<div class="award">Swiggy · Best Burgers in Jabalpur<br>2024 &amp; 2025 (per Bugeese)</div>
+<div class="mph"><div><b>Menu</b><i></i><i></i><i></i></div></div></div>
+<div class="pr" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+</section>
+
+<section class="sc" id="s3">
+<span class="tag rv" style="background:#1B1A17;color:#F8B912">Discover the menu</span>
+<h2 class="d rv" style="font-size:clamp(56px,9vw,120px);margin-top:20px">Pick your craving</h2>
+<div class="cards">
+<a class="cat rv" href="https://www.bugeese.com/menu"><div class="ph">[Replace with Bugeese “Burgers” menu image]</div><div class="t"><h3 class="d">Burgers</h3><p style="margin:4px 0 0">The star of the show. See every burger on the menu.</p></div></a>
+<a class="cat rv" href="https://www.bugeese.com/menu"><div class="ph">[Replace with Bugeese “Sides” menu image]</div><div class="t"><h3 class="d">Sides</h3><p style="margin:4px 0 0">Fries, nachos, cheese balls and more.</p></div></a>
+<a class="cat rv" href="https://www.bugeese.com/menu"><div class="ph">[Replace with Bugeese “Combos” menu image]</div><div class="t"><h3 class="d">Combos</h3><p style="margin:4px 0 0">Meals put together for a better deal.</p></div></a>
+</div>
+<p style="margin-top:28px"><a class="btn k" href="https://www.bugeese.com/menu">Browse the full menu</a></p>
+</section>
+
+<section id="s4">
+<div class="pin">
+<div>
+<span class="tag">The craving moment</span>
+<h2 class="d">Bite in. Feel the difference.</h2>
+<p style="max-width:420px">Scroll and watch the burger come together. Every layer matters.</p>
+<p class="note">Illustration only. Real recipe and photography to be supplied by Bugeese.</p>
+<a class="o" href="#s5">Skip to ordering</a>
+</div>
+<div class="stage" aria-hidden="true"><div class="scene" id="sc"></div></div>
+</div>
+</section>
+
+<section class="sc" id="s5">
+<span class="tag rv">From craving to order</span>
+<h2 class="d rv" style="font-size:clamp(56px,9vw,120px);margin-top:20px">Two ways to get your Bugeese</h2>
+<div class="two">
+<div>
+<div class="path rv"><h3 class="d">At the outlet</h3><p>Scan the QR code on your table or counter to open the digital menu on your phone. <b>Prototype:</b> the phone on the right is a demonstration of the planned flow, not a live ordering system.</p></div>
+<div class="path rv"><h3 class="d">At home</h3><p>Choose your delivery app. You’ll be taken to the Bugeese listing there to finish your order.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="https://www.zomato.com/jabalpur/bugeese-vijay-nagar/order" rel="noopener">Order on Zomato</a><a class="btn k" href="https://www.swiggy.com/city/indore/bugeese-bhawar-kuan-rest1453410" rel="noopener">Order on Swiggy</a></div>
+<p class="note" style="margin:10px 0 0">[Confirm outlet-specific links before launch.]</p></div>
+</div>
+<div class="rv">
+<div class="phone"><div class="scr" id="scr">
+<div class="on"><h3 class="d">Menu</h3><div class="row"><span>[Burger name]</span><b>[₹]</b></div><div class="row"><span>[Fries]</span><b>[₹]</b></div><div class="row"><span>[Mojito]</span><b>[₹]</b></div><span class="fake">Add to cart</span></div>
+<div><h3 class="d">Your cart</h3><div class="row"><span>1 × [Burger name]</span><b>[₹]</b></div><div class="row"><span>1 × [Fries]</span><b>[₹]</b></div><span class="fake">Checkout</span></div>
+<div><h3 class="d">Checkout</h3><div class="row"><span>Name</span><span>[ ]</span></div><div class="row"><span>Phone</span><span>[ ]</span></div><div class="row"><span>Pay by</span><span>Cash / Online</span></div><span class="fake">Place order (demo)</span></div>
+</div></div>
+<div class="dots" id="dots" role="group" aria-label="Demo screens"><button aria-label="Menu screen" aria-current="true"><i></i></button><button aria-label="Cart screen"><i></i></button><button aria-label="Checkout screen"><i></i></button></div>
+<div class="demo">Demo screens with placeholder data</div>
+</div>
+</div>
+</section>
+
+
+<section class="sc" id="road">
+<span class="tag rv" style="background:#1B1A17;color:#F8B912">The road ahead</span>
+<h2 class="d rv" style="font-size:clamp(56px,9vw,120px);margin-top:20px">What’s next</h2>
+<div class="cmp">
+<div class="rv"><h3 class="d">Bugeese’s stated direction</h3><ul><li>Franchise opportunities.</li><li>Expansion beyond Jabalpur to new cities.</li><li>The goal of becoming India’s most trusted and loved pure vegetarian burger brand.</li></ul><p class="src" style="margin-top:10px">Source: bugeese.com, About Us</p><p><a class="btn k" href="https://www.bugeese.com/franchise">Franchise enquiries</a></p></div>
+<div class="rv"><h3 class="d">Ideas from Team Titan</h3><ul><li>Easier QR ordering at the outlet.</li><li>One page to choose your delivery app.</li><li>Measuring which QR codes and campaigns bring visitors.</li></ul><p class="src" style="margin-top:10px">Proposals for BizzNNovate 2026. Not live, not confirmed with Bugeese.</p></div>
+</div>
+</section>
+
+<section id="s6">
+<div class="d big">Bugeese</div>
+<h2 class="d">Where Veg meets Wow</h2>
+<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap"><a class="btn" href="https://www.bugeese.com/menu">Explore the Menu</a><a class="o" href="#s5">Order Online</a></div>
+<div class="info"><div><b>Find us</b><br>[Outlet name]<br>[Full address, Indore]<br>[Opening hours]</div><div><b>Contact</b><br><a href="tel:+919326340687">+91-9326340687</a><br><a href="mailto:bugeeseindia@gmail.com">bugeeseindia@gmail.com</a></div></div>
+<p style="margin-top:48px;font-size:12px;opacity:.7">© 2026 Bugeese · Design concept by Team Titan</p>
+</section>
+
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var L=['bun','patty','cheese','tomato','lettuce','top'],sc=document.getElementById('sc');
+L.forEach(function(n,i){var e=document.createElement('i');e.className='ly '+n;e.style.setProperty('--i',i);sc.appendChild(e)});
+var w=document.querySelector('[data-words]'),ws=w.textContent.split(' ');w.textContent='';
+ws.forEach(function(t){var s=document.createElement('span');s.textContent=t+'\u00a0';w.appendChild(s)});
+var sp=w.querySelectorAll('span'),s4=document.getElementById('s4');
+function tick(){
+var r=w.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(innerHeight*.6)));
+sp.forEach(function(s,i){s.classList.toggle('on',rm||i/sp.length<=p)});
+var q=s4.getBoundingClientRect(),k=Math.min(1,Math.max(0,-q.top/(q.height-innerHeight)));
+if(rm)k=1;
+var e=1-Math.pow(1-k,3);
+sc.style.transform='rotateX('+(62-e*8)+'deg) rotateZ('+(-40+e*40)+'deg)';
+sc.style.setProperty('--gap',(8+(1-e)*80).toFixed(1));
+}
+var tk=false;function req(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;tick()})}}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);tick();
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll('.rv').forEach(function(e){io.observe(e)})}else document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
+
+var sp2=document.getElementById('sp'),stEl=document.getElementById('story');
+function story(){var q=stEl.getBoundingClientRect(),k=Math.min(.999,Math.max(0,-q.top/(q.height-innerHeight))),b=Math.floor(k*5),c='sp c'+b;for(var i=0;i<=b;i++)c+=' on'+i;if(sp2.className!==c)sp2.className=c}
+addEventListener('scroll',story,{passive:true});addEventListener('resize',story);story();
+var scr=[].slice.call(document.querySelectorAll('#scr>div')),dots=[].slice.call(document.querySelectorAll('#dots button')),cur=0,timer;
+function show(i){cur=i;scr.forEach(function(s,j){s.classList.toggle('on',j===i)});dots.forEach(function(d,j){d.setAttribute('aria-current',j===i)})}
+dots.forEach(function(d,i){d.addEventListener('click',function(){show(i);clearInterval(timer)})});
+if(!rm)timer=setInterval(function(){show((cur+1)%3)},2800);
+})();
+</script>
+</body>
+</html>

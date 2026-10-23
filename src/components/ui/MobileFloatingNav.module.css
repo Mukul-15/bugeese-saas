@@ -1,0 +1,110 @@
+/* Mobile Bottom Floating Nav - From Uiverse.io by mymiamo */
+
+.mobileNavContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 0 12px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .mobileNavContainer {
+    display: none !important;
+  }
+}
+
+.menu {
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  backdrop-filter: blur(16px) saturate(180%) contrast(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%) contrast(150%);
+  background: rgba(23, 19, 15, 0.78);
+  border: 1px solid rgba(255, 186, 18, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 186, 18, 0.08);
+  padding: 6px;
+  border-radius: 99rem;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 2px 2px 5px -2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 5px 2px rgba(255, 186, 18, 0.1),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
+  color: rgba(246, 240, 229, 0.75);
+  text-decoration: none;
+  padding: 8px 4px;
+  border-radius: 999rem;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    color 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease-in-out;
+}
+
+.menu a:hover {
+  transition:
+    background 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    color 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    inset 2px 2px 5px -2px rgba(255, 255, 255, 0.3),
+    inset -2px -1px 5px 0 rgba(255, 186, 18, 0.2),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.15);
+  transform: rotate(2deg);
+  color: #FFBA12;
+}
+
+.menu a svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  transition: transform 0.18s ease;
+}
+
+.menu a span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.menu a.active {
+  background: rgba(255, 186, 18, 0.22);
+  color: #FFBA12;
+  box-shadow:
+    inset 1px 1px 4px rgba(255, 255, 255, 0.25),
+    0 0 12px rgba(255, 186, 18, 0.2);
+}
+
+.menu a:active {
+  transform: scale(0.95);
+}
